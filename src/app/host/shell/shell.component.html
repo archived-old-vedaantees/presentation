@@ -1,0 +1,33 @@
+<div id="app-container">
+    <mat-toolbar color="primary" id="app-toolbar" class="mat-elevation-z2">
+        <button  mat-button  id="app-title" (click)="leftSideNav.toggle()">{{title}}</button>
+        <span    class="toolbar-flex-fill"></span>
+        <button  class="app-toolbar-button" mat-button>
+            <mat-icon>account_circle</mat-icon>
+        </button>
+        <button  class="app-toolbar-button" mat-button (click)="rightSideNav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </mat-toolbar>
+    
+    <mat-sidenav-container id="app-navigation" [hasBackdrop]="true">
+        <mat-sidenav mode="over" #leftSideNav id="app-left-nav">
+        
+        </mat-sidenav>
+        <mat-sidenav-content id="app-content">
+            <div id="app-content-layout" class="mat-elevation-z1">
+                <div id="app-content-layout-header">
+                    <span>Header</span>
+                </div>
+
+                <mat-card id="app-content-layout-detail">
+                    <mat-card-content>
+                        <router-outlet></router-outlet>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            
+        </mat-sidenav-content>
+        <mat-sidenav mode="over" position="end" #rightSideNav id="app-right-nav"></mat-sidenav>
+    </mat-sidenav-container>
+</div>

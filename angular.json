@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "vedaantees-presentation": {
+    "presentation": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -12,24 +12,31 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/vedaantees-presentation",
+          "options": 
+          {
+            "outputPath": "dist/presentation",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
-            "assets": [],
-            "styles": ["src/styles/00.reset.scss"],
+            "assets": 
+                [
+                ],
+            "styles": 
+                [
+                  "src/assets/styles/main.scss"
+                ],
             "scripts": []
           },
           "configurations": {
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
+              "fileReplacements": 
+                  [
+                    {
+                      "replace": "src/environments/environment.ts",
+                         "with": "src/environments/environment.prod.ts"
+                    }
+                  ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -45,22 +52,22 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "vedaantees-presentation:build"
+            "browserTarget": "presentation:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "vedaantees-presentation:build:production"
+              "browserTarget": "presentation:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "vedaantees-presentation:build"
+            "browserTarget": "presentation:build"
           }
         }
       }
     }
   },
-  "defaultProject": "vedaantees-presentation"
+  "defaultProject": "presentation"
 }
