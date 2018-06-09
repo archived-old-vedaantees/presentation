@@ -5,6 +5,7 @@ import { ShellComponent } from './shell/shell.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { RoutingModule } from '../routing.module';
+import { FrameworkModule } from '../framework/framework.module';
 import { 
           MatButtonModule,
           MatCardModule,
@@ -23,6 +24,7 @@ import { AboutComponent } from './about/about.component';
                     BrowserModule,
                     BrowserAnimationsModule,
                     RoutingModule,
+                    FrameworkModule,
                     FlexLayoutModule,
                     MatButtonModule,
                     MatCardModule,

@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './host/about/about.component';
 
 const routes = [
-                     { path: '', component: AboutComponent  }
+                     { path: '', component: AboutComponent, data:{ title: "About WorkNotes" }  }
                ];
 
 
