@@ -1,23 +1,22 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Subject } from 'rxjs';
+import { Observable,Subject} from 'rxjs';
 
 @Injectable()
-export class MessagingService 
+export class MessagingService<T>
 {
-    private subject = new Subject<any>();
- 
-    sendData(message: string) 
+    private subject = new Subject<T>();
+
+    sendMessage(message:T) 
     {
         this.subject.next(message);
     }
- 
-    clearData() 
+
+    clearMessage() 
     {
         this.subject.next();
     }
- 
-    getData(): Observable<any> 
+
+    getMessage(): Observable<T> 
     {
         return this.subject.asObservable();
     }

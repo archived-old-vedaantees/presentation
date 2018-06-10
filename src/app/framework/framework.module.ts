@@ -10,4 +10,6 @@ import { MessagingService } from './message-bus/messaging.service';
   declarations: [],
   providers:[MessagingService]
 })
-export class FrameworkModule { }
+export class FrameworkModule {
+  
+ }

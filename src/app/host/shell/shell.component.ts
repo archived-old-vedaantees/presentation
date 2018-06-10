@@ -1,8 +1,9 @@
 import { filter, map } from 'rxjs/operators';
-import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input, OnDestroy } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute, RoutesRecognized } from '@angular/router';
-import { MessagingService } from 'app/framework';
+import { MessagingService } from '@vedaantees/framework/message-bus/messaging.service';
 import { Subscription } from 'rxjs/internal/Subscription';
+import { PageSetting } from '@vedaantees/framework/views/page.view';
 
 
 @Component({
@@ -11,16 +12,17 @@ import { Subscription } from 'rxjs/internal/Subscription';
   styleUrls:  ['./shell.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class ShellComponent implements OnInit 
+export class ShellComponent implements OnInit, OnDestroy
 {
     private subscription: Subscription;
 
-    constructor(private router: Router, private activatedRoute: ActivatedRoute, private messagingService: MessagingService) 
+    constructor(private router: Router, private activatedRoute: ActivatedRoute, private pageSettingMessagingService: MessagingService<PageSetting>) 
     { 
 
     }
 
     title:string;
+    module:string;
     
     ngOnInit() 
     {
@@ -28,7 +30,7 @@ export class ShellComponent implements OnInit
         this.checkIfThereIsOnlyOneShellInWholePage();
         this.mapAttributesToProperties();
         this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((event: NavigationEnd) => that.onNavigationEnd(event));
-        this.subscription = this.messagingService.getData().subscribe(x => { this.title = x; });
+        this.subscription = this.pageSettingMessagingService.getMessage().subscribe(x => { this.title = x.title; this.module = x.module });
      }
 
     private onNavigationEnd(route:NavigationEnd)
@@ -47,5 +49,10 @@ export class ShellComponent implements OnInit
     {
         if(document.getElementsByTagName("shell").length!=1)
           throw "Only one shell is allowed per page.";
+    }
+
+    ngOnDestroy() 
+    {
+        this.subscription.unsubscribe();
     }
 }

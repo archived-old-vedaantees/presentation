@@ -17,7 +17,7 @@
       "dom"
     ],
     "paths":{
-        "@vedaantees/framework/*":["app/framework/*"]
+      "@vedaantees/framework/*":["app/framework/*"]
     }
   }
 }

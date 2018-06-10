@@ -1,6 +1,6 @@
 <div id="app-container">
     <mat-toolbar color="primary" id="app-toolbar" class="mat-elevation-z2">
-        <button  mat-button  id="app-title" (click)="leftSideNav.toggle()">{{title}}</button>
+        <button  mat-button  id="app-title" (click)="leftSideNav.toggle()">{{module}}</button>
         <span    class="toolbar-flex-fill"></span>
         <button  class="app-toolbar-button" mat-button>
             <mat-icon>account_circle</mat-icon>
@@ -20,7 +20,7 @@
                     <span>{{title}}</span>
                 </div>
 
-                <mat-card id="app-content-layout-detail">
+                <mat-card id="app-content-layout-detail" class="mat-elevation-z3">
                     <mat-card-content>
                         <router-outlet></router-outlet>
                     </mat-card-content>
