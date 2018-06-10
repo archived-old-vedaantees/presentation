@@ -9,16 +9,13 @@ export class PageView implements OnInit
 
     ngOnInit() 
     {
-        this.messagingService.sendMessage({ 
-                                                title: this.activatedRoute.snapshot.data["title"],
-                                                module: this.activatedRoute.snapshot.data["module"]
-                                          } as PageSetting);
+        this.messagingService.sendMessage(this.activatedRoute.snapshot.data as PageSetting);
     }
   
 }
 
 export interface PageSetting
 {
+     title:string;    
     module:string;
-     title:string;
 }

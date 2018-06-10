@@ -13,9 +13,12 @@ import {
           MatRippleModule,
           MatSidenavModule,
           MatIconModule,
-          MatToolbarModule
+          MatToolbarModule,
+          MatFormFieldModule,
+          MatInputModule
       } from '@angular/material';
 import { AboutComponent } from './about/about.component';
+import { LocalSettingsComponent } from './local-settings/local-settings.component';
 
 
 @NgModule({
@@ -32,9 +35,11 @@ import { AboutComponent } from './about/about.component';
                     MatRippleModule,
                     MatSidenavModule,
                     MatIconModule,
-                    MatToolbarModule                                                 
+                    MatToolbarModule,
+                    MatFormFieldModule,
+                    MatInputModule                                                                     
                 ],
-  declarations: [ShellComponent, AboutComponent],
+  declarations: [ShellComponent, AboutComponent, LocalSettingsComponent],
   bootstrap:    [ShellComponent]
 })
 export class HostModule 
