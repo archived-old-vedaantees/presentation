@@ -3,36 +3,58 @@
     Connections
   </mat-card-header>
 
-  <mat-card-content fxLayout="column" fxLayoutGap="10px" style="margin-top:20px;">
+  <mat-card-content fxLayout="column" fxLayoutGap="10px" style="margin-top:10px;">
       <mat-form-field fxFlex>
-        <input matInput placeholder="PostgreSQL">
-      </mat-form-field>
-      <mat-form-field fxFlex>
-        <input matInput placeholder="Raven DB">
+        <input matInput placeholder="PostgreSQL" [(ngModel)]="sqlConnectionString">
       </mat-form-field>
 
-      <mat-card class="">
-        <mat-card-content>
-          <mat-form-field>
-            <input matInput placeholder="Neo4J">
+      <mat-card class="mat-elevation-z0" style="padding:0;">
+          <mat-card-content fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" style="margin-top:10px;">
+            <mat-form-field fxFlex="60%">
+              <input matInput placeholder="RavenDb" [(ngModel)]="noSqlUrl">
+            </mat-form-field>
+            <mat-form-field fxFlex="20%">
+              <input matInput placeholder="Username" [(ngModel)]="noSqlUsername">
+            </mat-form-field>
+            <mat-form-field fxFlex="20%">
+              <input matInput placeholder="Password" [(ngModel)]="noSqlPassword">
+            </mat-form-field>          
+          </mat-card-content>
+        </mat-card>
+
+      <mat-card class="mat-elevation-z0" style="padding:0;">
+        <mat-card-content fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" style="margin-top:10px;">
+          <mat-form-field fxFlex="60%">
+            <input matInput placeholder="Neo4J" [(ngModel)]="graphUrl">
           </mat-form-field>
-          <mat-form-field>
-            <input matInput placeholder="Username">
+          <mat-form-field fxFlex="20%">
+            <input matInput placeholder="Username" [(ngModel)]="graphUsername">
           </mat-form-field>
-          <mat-form-field>
-            <input matInput placeholder="Password">
+          <mat-form-field fxFlex="20%">
+            <input matInput placeholder="Password" [(ngModel)]="graphPassword">
           </mat-form-field>          
         </mat-card-content>
       </mat-card>
       
+      <mat-card class="mat-elevation-z0" style="padding:0;">
+          <mat-card-content fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" style="margin-top:10px;">
+            <mat-form-field fxFlex="60%">
+              <input matInput placeholder="Bus-Queue"  [(ngModel)]="busQueueUrl">
+            </mat-form-field>
+            <mat-form-field fxFlex="20%">
+              <input matInput placeholder="Username"   [(ngModel)]="busQueueUsername">
+            </mat-form-field>
+            <mat-form-field fxFlex="20%">
+              <input matInput placeholder="Password"  [(ngModel)]="busQueuePassword">
+            </mat-form-field>          
+          </mat-card-content>
+        </mat-card>
+
       <mat-form-field fxFlex>
-        <input matInput placeholder="Bus Queue">
-      </mat-form-field>
-      <mat-form-field fxFlex>
-        <input matInput placeholder="Single Sign-On Server">
+        <input matInput placeholder="Single Sign-On Server"  [(ngModel)]="singleSignOn"/>
       </mat-form-field>
     </mat-card-content> 
   <mat-card-actions>
-    <button mat-raised-button color="primary">SAVE CHANGES</button>
+    <button mat-raised-button color="primary"(click)="saveChanges()" >SAVE CHANGES</button>
   </mat-card-actions>  
 </mat-card>

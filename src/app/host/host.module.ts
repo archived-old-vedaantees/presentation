@@ -6,6 +6,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { RoutingModule } from '../routing.module';
 import { FrameworkModule } from '../framework/framework.module';
+import { AboutComponent } from './about/about.component';
+import { LocalSettingsComponent } from './local-settings/local-settings.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { 
           MatButtonModule,
           MatCardModule,
@@ -17,17 +21,16 @@ import {
           MatFormFieldModule,
           MatInputModule
       } from '@angular/material';
-import { AboutComponent } from './about/about.component';
-import { LocalSettingsComponent } from './local-settings/local-settings.component';
-
 
 @NgModule({
   imports:      [
                     CommonModule,
                     BrowserModule,
                     BrowserAnimationsModule,
+                    HttpClientModule,                    
                     RoutingModule,
                     FrameworkModule,
+                    FormsModule,                                        
                     FlexLayoutModule,
                     MatButtonModule,
                     MatCardModule,
@@ -37,7 +40,7 @@ import { LocalSettingsComponent } from './local-settings/local-settings.componen
                     MatIconModule,
                     MatToolbarModule,
                     MatFormFieldModule,
-                    MatInputModule                                                                     
+                    MatInputModule
                 ],
   declarations: [ShellComponent, AboutComponent, LocalSettingsComponent],
   bootstrap:    [ShellComponent]

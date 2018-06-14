@@ -4,7 +4,7 @@ import { Router, NavigationEnd, ActivatedRoute, RoutesRecognized } from '@angula
 import { MessagingService } from '@vedaantees/framework/message-bus/messaging.service';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { PageSetting } from '@vedaantees/framework/views/page.view';
-
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'shell',
@@ -16,7 +16,10 @@ export class ShellComponent implements OnInit, OnDestroy
 {
     private subscription: Subscription;
 
-    constructor(private router: Router, private activatedRoute: ActivatedRoute, private pageSettingMessagingService: MessagingService<PageSetting>) 
+    constructor(private router: Router, 
+                private activatedRoute: ActivatedRoute, 
+                private pageSettingMessagingService: MessagingService<PageSetting>,
+                private http: HttpClient) 
     { 
 
     }

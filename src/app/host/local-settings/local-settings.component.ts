@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '@vedaantees/framework/api/api-service';
 
 @Component({
   selector: 'host-local-settings',
@@ -7,13 +8,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LocalSettingsComponent implements OnInit 
 {
-  constructor() 
-  { 
+    singleSignOn: string;
+    sqlConnectionString:string;
 
-  }
+    noSqlUrl:string;
+    noSqlUsername: string;
+    noSqlPassword: string;
 
-  ngOnInit() 
-  {
-  
-  }
+    graphUrl:string;
+    graphUsername:string;
+    graphPassword:string;
+
+    busQueueUrl:string;
+    busQueueUsername:string;
+    busQueuePassword:string;
+
+    constructor(private apiService:ApiService) 
+    { 
+
+    }
+
+    ngOnInit() 
+    {
+    
+    }
+
+    saveChanges()  
+    {
+        this.apiService.post("host/update-settings", this);      
+    }
 }
